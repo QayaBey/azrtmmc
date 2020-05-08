@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AzrtMMC.Models.Contact>
+@{
+    ViewBag.Title = "Əlaqə Saxlayanlar";
+    ViewBag.ContactActive = "active";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ad Soyad</th>
+                    <th>Email</th>
+                    <th>Mövzu</th>
+                    <th>Şirkət</th>
+                    <th>Mesaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.NameSurname</td>
+                        <td>@item.Email</td>
+                        <td>@item.Subject</td>
+                        <td>@item.Company</td>
+                        <td>@item.Message</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

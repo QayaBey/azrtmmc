@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AzrtMMC.Models.Shop>
+@{
+    ViewBag.Title = "Firmalar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <a href="/admin/newshop" class="btn btn-info">Yeni Firma</a>
+        @if (TempData["Success"] != null)
+        {
+            <div class="row">
+                <div class="col-12" style="margin-top:20px;"><div class="alert alert-info">@TempData["Success"]</div></div>
+            </div>
+        }
+        <table class="table datatable-pagination">
+            <thead>
+                <tr>
+                    <th>Firma Adı</th>
+                    <th colspan="2">Firma Açıqlama</th>
+                    <th>Firma Kateroqiyaları</th>
+                    <th colspan="2">Əməliyyatlar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            @if (item.Description.Length > 41)
+                            {
+                                @Html.Raw(item.Description.Substring(0, 40));<span>...</span>
+                            }
+                            else
+                            {
+                                @Html.Raw(item.Description);
+                            }
+                        </td>
+                        <td></td>
+                        <td>
+                            @foreach (var category in item.Categories.Where(i => i.ShopId == item.Id).ToList())
+                            {
+                                @category.Name <span> |</span>
+                            }
+                        </td>
+                        <td>
+                            <a href="/admin/editshop/@item.Id" class="btn btn-primary btn-sm">Düzəliş</a>
+                        </td>
+                        <td>
+                            <a href="/admin/deleteshop/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+
+

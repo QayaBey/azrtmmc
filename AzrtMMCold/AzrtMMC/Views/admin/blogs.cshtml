@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AzrtMMC.Models.Blog>
+@{
+    ViewBag.Title = "Bloglar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <a href="/admin/newblog" class="btn btn-info">Yeni Blog</a>
+        @if (TempData["Success"] != null)
+        {
+            <div class="row">
+                <div class="col-12" style="margin-top:20px;"><div class="alert alert-info">@TempData["Success"]</div></div>
+            </div>
+        }
+        <table class="table datatable-pagination">
+            <thead>
+                <tr>
+                    <th class="text-center">Blog Adı</th>
+                    <th class="text-center">Blog Tarixi</th>
+                    <th colspan="2" class="text-center">Blog Açıqlama</th>
+                    <th colspan="2" class="text-center">Əməliyyatlar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.CreatedDate.ToShortDateString()</td>
+                        <td>
+                            @if (item.Description.Length > 41)
+                            {
+                                @Html.Raw(item.Description.Substring(0, 40));<span>...</span>
+                            }
+                            else
+                            {
+                                @Html.Raw(item.Description);
+                            }
+                        </td>
+                        <td></td>
+                        <td>
+                            <a href="/admin/editblog/@item.Id" class="btn btn-primary btn-sm">Düzəliş</a>
+                        </td>
+                        <td>
+                            <a href="/admin/deleteblog/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+

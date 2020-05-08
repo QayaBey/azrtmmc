@@ -1,0 +1,68 @@
+﻿@model AzrtMMC.ViewModel.CategorySubcategory
+@{
+    ViewBag.Title = Model.Category.Name;
+}
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">@Model.Category.Name</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="/"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">@Model.Category.Name</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+        <h2 style="text-align: center;">@Model.Category.Name</h2>
+        <img src="~/wwwroot/category/@Model.Category.ImagePath" alt="@Model.Category.Name">
+        <p>@Html.Raw(Model.Category.Description)</p>
+        <section class="lattest-product-area pb-40 category-list">
+            <div class="row">
+                @foreach (var item in Model.SubCategories)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card text-center card-product">
+                            <div class="card-product__img">
+                                <img class="card-img" src="~/wwwroot/subcategory/@item.ImagePath" alt="@item.Name">
+                                <ul class="card-product__imgOverlay">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-product__title"> <a href="/subcategory/details/@item.Id">@item.Name</a></h4>
+                                <p>@Html.Raw(item.Description)</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </section>
+
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>

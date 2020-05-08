@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "createpartner";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <form class="form-horizontal" action="/admin/createpartner" method="post" enctype = "multipart/form-data" >
+            <div class="form-group">
+                @Html.AntiForgeryToken()
+                <label class="col-lg-2 control-label text-semibold">Partner şəkili:</label>
+                <div class="col-lg-10">
+                    @if (TempData["Error"] != null)
+                    {
+                        <span class="text-danger">@TempData["Error"]</span>
+                    }
+                    <input type="file" class="file-input-extensions" data-show-upload="false" name="image">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info btn-block" style="margin-top:50px;width:50%;margin:auto;">Yüklə</button>
+        </form>
+    </div>
+</div>
+

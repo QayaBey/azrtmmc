@@ -1,0 +1,66 @@
+﻿@model AzrtMMC.ViewModel.ShopCategory
+@{
+    ViewBag.Title = Model.Shop.Name;
+}
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">@Model.Shop.Name</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="#"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">@Model.Shop.Name</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+        <div class="page-content">
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12 order-lg-12 firm-head">
+                            <h2>@Model.Shop.Name</h2>
+                            <img src="~/wwwroot/shop/@Model.Shop.ImagePath" alt="">
+                            <p>@Html.Raw(Model.Shop.Description)</p>
+                        </div>
+                        <div class="col-lg-4 col-md-12 sidebar order-lg-1 md-mt-5">
+                            <div class="widget">
+                                <h5 class="widget-title">Kateqoriyalar</h5>
+                                <ul class="widget-categories list-unstyled">
+                                    @foreach (var item in Model.Categories)
+                                    {
+                                        <li>
+                                            <a href="/category/details/@item.Id">@item.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>
+

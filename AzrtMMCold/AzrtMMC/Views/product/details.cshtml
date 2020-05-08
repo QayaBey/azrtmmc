@@ -1,0 +1,200 @@
+﻿@model AzrtMMC.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+}
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">@Model.Name</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="/"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">@Model.Name</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .s_product_text ul li {
+        list-style: none;
+        padding-top:5px!important;
+    }
+
+    .s_product_text ul {
+        padding-left: 0px;
+    }
+    .s_product_text ul li h3{
+        margin-bottom:0 !important;
+        font-size:30px !important;
+    }
+    .s_product_text ul li p span span{
+        color: #9e2424 !important;
+    font-weight: 400 !important;
+    }
+
+    .product_loc ul {
+        padding-left: 0px;
+    }
+
+    .s_product_text i {
+        margin-right: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .product_loc ul li {
+        list-style: none;
+        padding-left: 10px;
+    }
+
+    .product_loc i {
+        font-size: 0.7rem;
+        margin-right: 1rem;
+    }
+
+    .pdf {
+        background-color: #00a7ff;
+        border: 2px solid #00a7ff;
+        color: #fff;
+        padding: 8px 81px;
+        outline: none;
+        font-size: 1rem;
+    }
+
+        .pdf:hover {
+            background-color: #1b5c7d;
+            transition: all 0.5s ease-in-out;
+        }
+
+    .video-frame p {
+        font-size: 1rem !important;
+        margin: 1rem 0;
+        align-items: center;
+        display: flex;
+    }
+     .video-frame {
+        align-items: center;
+        display: flex;
+        font-size:larger;
+    }
+    .product-image{
+        text-align:center;
+    }
+
+    .s_product_inner h3 {
+        font-size: 2rem;
+        color: #9e2424;
+        font-weight: 600;
+    }
+
+    .s_product_inner li {
+        color: black;
+    }
+
+        .s_product_inner li i {
+            color: cadetblue !important;
+        }
+
+    .sektor i {
+        font-size: 1.3rem;
+        margin-right: 1rem;
+        color: cadetblue !important;
+    }
+    .sektor a{
+            padding-right: 10px !important;
+    }
+    .sektor p img{
+        width:25px !important;
+        height:25px !important;
+    }
+
+    .head-text {
+        margin: auto;
+        font-weight: 700;
+    }
+
+    p {
+        margin: 0 !important;
+    }
+
+    ul {
+        list-style-type: circle !important;
+    }
+   @@media screen and (max-width: 768px) {
+       .prop,.product_loc h3, .sektor h3{
+           text-align:center;
+       }
+   }
+</style>
+
+<div class="tb-content elementor-page">
+    @*<div class="marg-lg-b100 marg-md-b50"></div>*@
+    <div class="container">
+        <div class="product_image_area">
+            <div class="container">
+                <div class="text-center pt-5 pb-3">
+                    <h3 class="head-text">@Model.Name</h3>
+                </div>
+               
+                <div class="row s_product_inner">
+
+                    <div class="col-lg-6 pb-3 product-image">
+                        <div class="owl-carousel owl-theme s_Product_carousel">
+                            <div class="single-prd-item">
+                                <img class="img-fluid" src="~/wwwroot/product/@Model.ImagePath" alt="@Model.Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pb-3 video-frame">
+                        @if (!String.IsNullOrEmpty(Model.VideoLink))
+                        {
+                            <iframe width="100%" height="450" src="@Model.VideoLink">
+                            </iframe>
+                        }
+
+                        @Html.Raw(Model.Description)
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5">
+                        <div class="s_product_text">
+                            <h3 class="prop">Xüsusiyyətlər</h3>
+                            @Html.Raw(Model.Property)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <div class="product_loc">
+                            <h3 class="">İstifadə sahələri</h3>
+                            @Html.Raw(Model.KullanimAlanlari)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <div class="sektor">
+                            <h3 class="">Sektorlar</h3>
+                            @Html.Raw(Model.Sektorler)
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12 d-flex justify-content-center"><a class="pdf mt-5" href="/product/downloadpdf/@Model.Id" target="_blank">See Pdf</a></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AzrtMMC.Models.Shop>
+@{
+    ViewBag.Title = "Firmalar ";
+}
+
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">Firmalar</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="#"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">Firmalar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+
+        <div class="page-content">
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="partner-rel col-lg-4 col-md-6">
+                                <div class="cases-item style-3 text-center">
+                                    <div class="cases-images">
+                                        <a href="/shop/details/@item.Id">
+                                            <img class="img-fluid rounded box-shadow"
+                                                 src="~/wwwroot/shop/@item.ImagePath"
+                                                 alt="@item.Name" />
+                                            </a>
+                                    </div>
+                                    <div class="cases-desc">
+                                        <h5><a href="/shop/details/@item.Id">@item.Name </a></h5>
+                                    </div>
+                                </div>
+                                <a href="/shop/details/@item.Id" class="partner-abs" style="height:80px;"></a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </section>
+            <style>
+                .partner-rel {
+                    position: relative;
+                }
+
+                .partner-abs {
+                    position: absolute;
+                    top: 22%;
+                    left: 10%;
+                    width: 81%;
+                }
+            </style>
+        </div>
+
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>
+

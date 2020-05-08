@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AzrtMMC.Models.Blog>
+@{
+    ViewBag.Title = "Bloglar ";
+}
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">Bloglar</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="#"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">Bloglar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+        <div class="row"></div>
+    </div>
+    <div id="blog" class="section container blog-columns blog-masonry">
+        <div class="row blog-container">
+            @foreach (var item in Model)
+            {
+                <!-- Blog Post 1 -->
+                <div class="col-md-4 blog-selector">
+                    <div class="blog-post">
+                        <!-- Image -->
+                        @if (!String.IsNullOrEmpty(item.ImagePath))
+                        {
+                            <a href="/blogs/details/@item.Id" class="post-img">
+                                <img src="~/wwwroot/blog/@item.ImagePath"
+                                     alt="@item.Title" />
+                            </a>
+                        }
+                        <div class="bp-content">
+                            <!-- Meta data -->
+                            <div class="post-meta d-none">
+                                <a href="#" class="post-date">
+                                    <i class="fa fa-calendar-o"></i>
+                                    <span>@item.CreatedDate</span>
+                                </a>
+                            </div>
+                            <!-- / .meta -->
+                            <!-- Post Title -->
+                            <a href="/blogs/details/@item.Id" class="post-title"><h4>@item.Title</h4></a>
+
+                            <!-- Blurb -->
+                            <p>
+                                @if (item.Description.Length > 124)
+                                {
+                                    @Html.Raw(item.Description.Substring(0, 120)); <span>...</span>
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.Description);
+                                }
+                            </p>
+
+                            <!-- Link -->
+                            <a href="/blogs/details/@item.Id" class="btn btn-small">Daha çox</a>
+                        </div>
+                        <!-- / .bp-content -->
+                    </div>
+                    <!-- / .blog-post -->
+                </div>
+                <!-- / .col-lg-4 -->
+            }
+        </div>
+        <!-- / .row -->
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>

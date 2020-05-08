@@ -1,0 +1,67 @@
+﻿@model AzrtMMC.Models.Category
+@{
+    ViewBag.Title = "Kateqoriya düzəliş";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <!-- Basic layout-->
+        <form action="/admin/editcategory/@Model.Id" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Yeni Kateqoriya</h5>
+                </div>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["Error"]</div>
+                }
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Kateqoriya adı:</label>
+                        <input type="text" class="form-control" name="Name" value="@Model.Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Şəkil:</label>
+                        <input type="file" class="file-styled" name="file" accept=".jpg,.png,.gif">
+                        <span class="help-block">Qəbul edilən formatlar: gif, png, jpg. Şəklin maksimum ölçüsü 2Mb olmalıdır.</span>
+                        <img src="~/wwwroot/category/@Model.ImagePath" class="img-thumbnail" width="300" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Açıqlama:</label>
+                        <textarea name="description" id="editor-full" rows="4" cols="4">@Model.Description</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Firma:</label>
+                        <select class="select" name="ShopId">
+                            @foreach (var item in (List<AzrtMMC.Models.Shop>)ViewBag.Shops)
+                            {
+                                if (item.Id == Model.ShopId)
+                                {
+                                    <option selected value="@item.Id">@item.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-primary">Düzəliş</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- /basic layout -->
+    </div>
+</div>
+
+<script>
+        CKEDITOR.replace("editor-full");
+</script>
+

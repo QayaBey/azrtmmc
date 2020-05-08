@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AZRT MMC - Admin Panel</title>
+
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/AdminPanel/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPanel/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPanel/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPanel/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="~/AdminPanel/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+
+    <script src="~/AdminPanel/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/partners">AZRT MMC - Admin Panel</a>
+
+            <ul class="nav navbar-nav visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Page container -->
+    <div class="page-container">
+
+        <!-- Page content -->
+        <div class="page-content">
+
+            <div class="sidebar sidebar-main">
+                <div class="sidebar-content">
+                    <!-- Main navigation -->
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+
+                                <!-- Main -->
+                                <li class="navigation-header"><span>Əsas</span> <i class="icon-menu" title="" data-original-title="Main pages"></i></li>
+                                <li class="@ViewBag.PartnersActive"><a href="/admin/partners"><i class="icon-stack2"></i> <span>Partnyorlar</span></a></li>
+                                <li class="@ViewBag.BlogsActive">
+                                    <a href="/admin/blogs"><i class="icon-book3"></i> <span>Bloglar</span></a>
+                                </li>
+                                <li class="@ViewBag.ShopsActive">
+                                    <a href="/admin/shops"><i class="icon-store"></i> <span>Firmalar</span></a>
+                                </li>
+                                <li class="@ViewBag.CategoriesActive">
+                                    <a href="/admin/categories"><i class="icon-list"></i> <span>Kateqoriyalar</span></a>
+                                </li>
+                                <li class="@ViewBag.SubCategoriesActive">
+                                    <a href="/admin/subcategories"><i class="icon-tree7"></i> <span>Alt Kateqoriyalar</span></a>
+                                </li>
+                                <li class="@ViewBag.ProductsActive">
+                                    <a href="/admin/products"><i class="icon-stack4"></i> <span>Məhsullar</span></a>
+                                </li>
+                                <li class="@ViewBag.ContactsActive">
+                                    <a href="/admin/contacts"><i class="icon-bubbles"></i> <span>Əlaqə saxlayanlar</span></a>
+                                </li>
+                                <li>
+                                    <a href="/"><i class="icon-home2"></i> <span>Əsas səhifə</span></a>
+                                </li>
+                                <li>
+                                    <a href="/account/logout"><i class="icon-arrow-left52"></i> <span>Sistemdən çıxış</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /main navigation -->
+                </div>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+    <!-- Core JS files -->
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+
+    <script type="text/javascript" src="~/AdminPanel/assets/js/pages/uploader_bootstrap.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/ui/moment/moment.min.js"></script>
+
+
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/pages/datatables_basic.js"></script>
+
+    <script type="text/javascript" src="~/AdminPanel/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/pages/form_layouts.js"></script>
+    <script type="text/javascript" src="~/AdminPanel/assets/js/plugins/forms/selects/select2.min.js"></script>
+    <!-- /theme JS files -->
+</body>
+</html>

@@ -1,0 +1,109 @@
+﻿@model AzrtMMC.Models.Product
+@{
+    ViewBag.Title = "Məhsul Düzəlişi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <!-- Basic layout-->
+        <form action="/admin/editproduct/@Model.Id" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Məhsul düzəlişi</h5>
+                </div>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["Error"]</div>
+                }
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Məhsul adı:</label>
+                    <input type="text" class="form-control" name="Name" value="@Model.Name">
+                </div>
+                <div class="form-group">
+                    <label>Qapaq Şəkili:</label>
+                    <input type="file" class="file-styled" name="file" accept=".jpg,.png,.gif">
+                    <span class="help-block">Qəbul edilən formatlar: gif, png, jpg. Şəklin maksimum ölçüsü 2Mb olmalıdır.</span>
+                    <img src="~/wwwroot/product/@Model.ImagePath" class="img-thumbnail" width="300" />
+                </div>
+               
+                
+                <div class="form-group">
+                    <label>Əlavə Şəkillər:</label>
+                    <input type="file" multiple="multiple" class="file-styled" name="file" accept=".jpg,.png,.gif">
+                    <span class="help-block">Qəbul edilən formatlar: gif, png, jpg. Şəklin maksimum ölçüsü 2Mb olmalıdır.</span>
+                    @foreach (var item in ViewBag.Pic)
+                    {
+                        <img src="~/wwwroot/product/@item" class="img-thumbnail" width="300" />
+                    }
+                    @Html.TextBoxFor(model => model.OtherImages, "", new { @type = "file", @multiple = "multiple" })
+                </div>
+
+                <div class="form-group">
+                    <label>Açıqlama:</label>
+                    <textarea name="description" id="desc" class="form-control">@Model.Description</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Xüsusiyyətlər (Property):</label>
+                    <textarea name="property" id="property">@Model.Property</textarea>
+                </div>
+                <div class="form-group">
+                    <label>İstifadə sahələri:</label>
+                    <textarea name="KullanimAlanlari" id="ka">@Model.KullanimAlanlari</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Sektorler:</label>
+                    <textarea name="Sektorler" id="sk">@Model.Sektorler</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Alt Kateqoriya:</label>
+                    <select class="select" name="SubCategoryId">
+                        @foreach (var item in (List<AzrtMMC.Models.SubCategory>)ViewBag.SubCategories)
+                        {
+                            if (Model.SubCategoryId == item.Id)
+                            {
+                                <option value="@item.Id" selected>@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Video Link:</label>
+                    <input type="text" class="form-control" name="VideoLink" value="@Model.VideoLink">
+                    <small><b>Diqqət!</b> Video linki yerləşdirərkən linkin "embed" forması yazılmalıdı. Əks təqdirdə video işləməyəcək.</small>
+                </div>
+                <div class="form-group">
+                    <label>Pdf Yüklə:</label>
+                    <input type="file" class="file-styled" name="pdffile" accept=".pdf">
+                    @if (!String.IsNullOrEmpty(Model.PdfLink))
+                    {
+                        <a href="~/wwwroot/product/@Model.PdfLink" class="btn btn-success btn-sm mt-2" target="_blank">Fayla bax</a>}
+                </div>
+                <div class="text-left">
+                    <button type="submit" class="btn btn-primary">Düzəliş</button>
+                </div>
+            </div>
+            </div>
+        </form>
+        <!-- /basic layout -->
+    </div>
+</div>
+
+<script>
+    CKEDITOR.replace("property");
+    CKEDITOR.replace("desc");
+    CKEDITOR.replace("ka");
+    CKEDITOR.replace("sk");
+</script>
+
+
+

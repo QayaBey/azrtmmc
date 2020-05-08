@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AzrtMMC.Models.Partner>
+@{
+    ViewBag.Title = "Partners ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<div class="content-wrapper">
+    <!-- Content area -->
+    <div class="content">
+        <a href="/admin/createpartner" class="btn btn-primary">Yeni Partnyor</a>
+        <div class="row">
+            @if (TempData["Success"] != null)
+            {
+                <div class="col-12" style="margin-top:10px;"><div class="alert alert-info">@TempData["Success"]</div></div>
+            }
+            @foreach (var item in Model)
+            {
+        <div class="col-md-2" style="margin-top:30px;">
+            <img src="~/wwwroot/partner/@item.ImagePath" class="img-thumbnail" />
+            <a href="/admin/deletepartner/@item.Id" class="btn btn-danger btn-sm" style="margin-top:10px;"><i class="icon-bin"></i></a>
+
+        </div>
+            }
+        </div>
+
+    </div>
+    <!-- /content area -->
+
+</div>
+<!-- /main content -->

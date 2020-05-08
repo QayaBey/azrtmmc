@@ -1,0 +1,239 @@
+﻿
+@{
+    ViewBag.Title = "Əlaqə ";
+}
+<div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+     data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tb-page-heading">
+                    <h1 class="tb-heading-title">Əlaqə</h1>
+                    <ul class="tb-breadcamp">
+
+                        <li class="home">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a property="item"
+                                   typeof="WebPage"
+                                   title="Go to Home."
+                                   href="#"
+                                   class="home"><span property="name">Ana Səhifə</span></a>
+                                <meta property="position" content="2" />
+                            </span>
+                        </li>
+                        <li class="post post-page current-item">
+                            <span class="post post-page current-item">Əlaqə</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header ends here -->
+
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+        <div class="row">
+            @if (TempData["Success"] != null)
+            {
+            <div class="col-12"><div class="alert alert-success"><b> @TempData["Success"]</b> </div></div>
+            }
+        </div>
+    </div>
+
+
+    <!-- banner-info start---------- ---------------------->
+    <section class="banner-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-12 col-sm-12 contact-grid">
+                    <div class="contact-inner">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Ünvan</h4>
+                        <p>
+                            Dilarə Əliyeva 251a, Bakı, Azərbaycan
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 col-sm-12 contact-grid">
+                    <div class="contact-inner">
+                        <i class="fas fa-phone"></i>
+                        <h4>Əlaqə</h4>
+                        <p><span><a href="">+994 55 206 29 49</a></span></p>
+                    </div>
+                    <style>
+                        .banner-info  p{
+                           margin: 1rem 0;
+                        }
+                        .contact-inner{
+                            height:13rem;
+                        }
+                        .contact-layout i{
+                            margin-top: 2em;
+                        }
+                        .contact-inner p  a:hover{
+                            color:blue;
+                        }
+                    </style>
+                </div>
+                <div class="col-md-4 col-12 col-sm-12 contact-grid">
+                    <div class="contact-inner">
+                        <i class="far fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:info@azrtmmc.com">info@azrtmmc.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner-info end---------- ---------------------->
+    <!-- map section start---------- ---------------------->
+    <section class="map">
+        <div class="map-responsive">
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="100%" height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=Dilar%C9%99%20%C6%8Fliyeva%20251a%2C%20Bak%C4%B1%2C%20Az%C9%99rbaycan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 350px;
+                        width: 100%;
+                    }
+
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 350px;
+                        width: 100%;
+                    }
+                </style>
+            </div>
+
+        </div>
+        <div class="map-responsive pt-5">
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.20059489559!2d49.96838461539489!3d40.38224657936919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40306363b1c0217b%3A0x25317ce86e3cfd71!2zOSwgMjUgU8mZbcmZZCBiyZl5IE1laG1hbmRhcm92LCBCYWvEsQ!5e0!3m2!1str!2s!4v1588344038431!5m2!1str!2s" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+            </div>
+        </div>
+    </section>
+    <!-- map section end---------- ---------------------->
+    <!-- more-inform section start---------- ---------------------->
+    <section class="more-inform">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12 contact-social">
+                    <h4>For More <span>Information</span></h4>
+                    <div class="contact-layout">
+                        <i class="fas fa-phone-volume"></i>
+                        <div class="contact-right">
+                            <p>Əlaqə</p>
+                            <span class="phone-numb"><a href="">+994 55 206 29 49</a></span>
+                            <style>
+
+                            </style>
+                            
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="contact-layout">
+                        <i class="far fa-envelope"></i>
+                        <div class="contact-right">
+                            <p>Email</p>
+                            <span class="phone-numb"><a href="mailto:info@azrtmmc.com">info@azrtmmc.com</a></span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="contact-layout">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-right">
+                            <p>Ünvan</p>
+                            <span class="phone-numb">Dilarə Əliyeva 251a, Bakı, Azərbaycan</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="social col-12 col-md-12">
+                        <ul class="social-nav model-3d-0 footer-social w3_agile_social contact-float">
+                            <li class="share">Paylaş :</li>
+                            <li>
+                                <a href="#" class="facebook">
+                                    <div class="front">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="back">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                    <div class="front">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="back">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="instagram">
+                                    <div class="front">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="back">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="pinterest">
+                                    <div class="front">
+                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="back">
+                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 contact-form">
+                    <h4>Bizə <span>Yaz</span></h4>
+                    <form action="/contact/sendmessage" method="POST" class="text-white">
+                        <div class="styled-input">
+                            <input type="text" placeholder="&nbsp;" required class="text-white" name="NameSurname" />
+                            <span class="label">Ad və Soyad</span>
+                            <span class="border"></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="email" placeholder="&nbsp;" required class="text-white" name="Email"/>
+                            <span class="label">Email</span>
+                            <span class="border"></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="text" placeholder="&nbsp;" required class="text-white" name="Subject"/>
+                            <span class="label">Mövzu</span>
+                            <span class="border"></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="text" placeholder="&nbsp;" required class="text-white" name="Company"/>
+                            <span class="label">Şirkət</span>
+                            <span class="border"></span>
+                        </div>
+                        <div class="styled-input">
+                            <input type="text" placeholder="&nbsp;" required class="text-white" name="Message"/>
+                            <span class="label">Müraciət</span>
+                            <span class="border"></span>
+                        </div>
+                        <button type="submit" style="margin-top: 3rem;">Göndər</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- more-inform section end---------- ---------------------->
+    <!-- sagol qaqaaa!!! ends -->
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model AzrtMMC.Models.Blog
+@{
+    ViewBag.Title = Model.Title;
+}
+    <div class="tb-page-heading-wrap has-overlay tb-page-header tb-parallax"
+         data-speed="0.4" style="background-image:url(/wwwroot/imgs/page-header-bg.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tb-page-heading">
+                        <h1 class="tb-heading-title">@Model.Title</h1>
+                        <ul class="tb-breadcamp">
+
+                            <li class="home">
+                                <span property="itemListElement" typeof="ListItem">
+                                    <a property="item"
+                                       typeof="WebPage"
+                                       title="Go to Home."
+                                       href="/"
+                                       class="home"><span property="name">Ana Səhifə</span></a>
+                                    <meta property="position" content="2" />
+                                </span>
+                            </li>
+                            <li class="post post-page current-item">
+                                <span class="post post-page current-item">Bloglar</span>
+                            </li>
+                            <li class="post post-page current-item">
+                                <span class="post post-page current-item">@Model.Title</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="tb-content elementor-page">
+    <div class="marg-lg-b100 marg-md-b50"></div>
+    <div class="container">
+        <h2 style="text-align: center;">@Model.Title</h2>
+        <div class="imgs" style="text-align: center;">
+            <img src="~/wwwroot/blog/@Model.ImagePath" alt="@Model.Title">
+        </div>
+        <p>@Html.Raw(Model.Description)</p>
+        <p class="text-right">@Model.CreatedDate.ToShortDateString()</p>
+    </div>
+    <div class="marg-lg-b100 marg-md-b50"></div>
+</div>
